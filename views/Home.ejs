@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexstyle.css">
+
+
+    <title>Welcome <%= name %></title>
+</head>
+<style type="text/css">
+
+
+  *{
+   margin: 0px;
+   padding: 0px;
+  }
+  body{
+   font-family: arial;
+  }
+      .main{
+        float:left;
+        margin-top: 20px;;
+      }
+      
+      .card{
+        background-color: rgba(0, 0, 0, 0.3);
+           width: 55%;
+           display: inline-block;
+           box-shadow: 2px 2px 20px black;
+           border-radius: 5px; 
+           margin: 2%;
+          }
+      
+      .image img{
+        width: 100%;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        
+      
+       
+       }
+      
+      .title{
+       color:white;
+        text-align: center;
+        padding: 10px;
+        
+       }
+      
+      h1{
+        color:white;
+        font-size: 20px;
+       }
+      
+      .des{
+        color:white;
+        padding: 3px;
+        text-align: center;
+       
+        padding-top: 10px;
+              border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      button{
+        margin-top: 40px;
+        margin-bottom: 10px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding:10px;
+      }
+      button:hover{
+        background:linear-gradient(-135deg, #71b7e6, #9b59b6);;
+        color: white;
+        transition: .5s;
+        cursor: pointer;
+      }
+  
+  </style>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">Welcome <%= name %></div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/login">Products</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+      <%
+      if(data.length!=0){
+      var i=1;
+      data.forEach(function(data){
+      %>
+      <div class="main">
+
+        <!--cards -->
+       
+       <div class="card">
+       
+       <div class="image">
+          <img src="uploads/<%= data.image %>">
+       </div>
+       <div class="title">
+        <h1>
+       <b><%= data.name %></h1></b>
+       </div>
+       <div class="des">
+        <p><%= data.brand %> <%= data.description %></p>
+       <button>Click to Know More</button>
+       </div>
+       </div>
+       </div>
+       <%  i++; }) %>
+       <% } %>
+       
+</body>
+</html>

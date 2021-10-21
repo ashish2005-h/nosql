@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">LapHub</div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="register">Join Now</a></li>
+          </ul>
+        </div>
+      </nav>
+  <div class="container">
+    <center><span class='msg'><%= name %></span></center>
+    <div class="title" style="font-size:50px;">Login</div>
+    <div class="content">
+        <form id = "reg" method="POST" action = "/login" >
+            <div class="user-details">
+                <div class="input-box" style="margin-left:160px;font-size:25px;">
+                    <span class="details">Username</span>
+                    <input type="text" placeholder="Enter your username" name ="userid" autofocus>
+                    <span id="msg2"></span>
+                </div>
+                <div class="input-box">
+                 
+                </div>
+                <div class="input-box" style="margin-left:160px;font-size:25px;">
+                    <span class="details">Password</span>
+                    <input type="password" placeholder="Enter your password" name="password" id='password' autofocus>
+                    <i class="far fa-eye" id="togglePassword" style='margin-left:10px;margin-top: 10px;
+                    cursor: pointer;'></i>
+                    <span id="msg5"></span>
+                </div>
+               
+            </div>
+            <button class="register" type="submit">Login</button>
+
+            <h3 align="center" >Don't Have a Account <a href="/register">Click Here!</a></h3>
+        </form>
+    </div>
+</div>
+<script>
+   const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+
+ 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+</script>
+</body>
+</html>

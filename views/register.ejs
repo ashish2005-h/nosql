@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <style>
+        .alert {
+          padding: 7px;
+          background-color: red;
+          color: yellow;
+          font-family: 'Times New Roman', Times, serif;
+          border:solid black;
+          border-radius: 10px;
+        
+        }
+        
+        .closebtn {
+          margin-left: 15px;
+          color: black;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        
+        .closebtn:hover {
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">LapHub</div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="register">Join Now</a></li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+        <% if(typeof alert != 'undefined'){%>
+            <% alert.forEach(function(error){ %>
+                <div class="alert">
+                
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+               <%= error.msg %>
+        </div>
+        <%})%>
+        <% } %>
+        <div class="title">Registration</div>
+        <div class="content">
+            <form id = "reg" method="POST" action = "/register">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" placeholder="Enter your name" name ="name"  autofocus>
+                        <span id="msg1"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                        <input type="text" placeholder="Enter your username" name ="userid" autofocus>
+                        <span id="msg2"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="email" placeholder="Enter your email" name ="email" autofocus>
+                        <span id="msg3"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="number" placeholder="Enter your number" name ="contact" autofocus>
+                        <span id="msg4"></span>
+                        <span id="msg9"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" placeholder="Enter your password" name="password" id='password' autofocus>
+                        <i class="far fa-eye" id="togglePassword" style='margin-left:310px;  
+                        cursor: pointer;'></i>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" placeholder="Confirm your password" name ="cpassword" id='cpassword' autofocus>
+                        <span id="msg6"></span>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Gender</span>
+                        <select class="gender" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                        <option value="" selected>Select</option>
+                        </select>
+                        <span id="msg7"></span>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Age</span>
+                        <input type="number" placeholder="Enter Your Age" name ="age" autofocus>
+                        <span id="msg8"></span>
+                    </div>
+                </div>
+                <button class="register" type="submit">Register</button>
+
+                <h3 align="center">Already have a account <a href="/login">Click Here!</a></h3>
+            </form>
+        </div>
+    </div>
+    <script>
+  const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  const cpassword = document.querySelector('#cpassword');
+ 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    const type1 = cpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    cpassword.setAttribute('type', type1);
+    this.classList.toggle('fa-eye-slash');
+});
+    </script>
+    
+</body>

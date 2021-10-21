@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>Welcome <%= name %></title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">Welcome <%= name %></div>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="#">XYZ</a></li>
+            <li><a href="#">Manage Users</a></li>
+            <li><a href="#">Manage Orders</a></li>
+            <li><a href="/product">Products</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <center><span class='msg'><%= name1 %></span></center>
+      <div class="title">Product Details</div>
+      <div class="content">
+          <form id = "reg" method="POST" action = "/add" enctype="multipart/form-data">
+              <div class="user-details">
+                  <div class="input-box">
+                      <span class="details">Product Category</span>
+                      <input type="text" placeholder="Enter Product Category" name ="name"  autofocus>
+                      <span id="msg1"></span>
+                  </div>
+                  <div class="input-box">
+                      <span class="details">Model No</span>
+                      <input type="text" placeholder="Enter Model No" name ="modelno" autofocus>
+                      <span id="msg2"></span>
+                  </div>
+                  <div class="input-box">
+                      <span class="details">Brand</span>
+                      <input type="text" placeholder="Enter Brand eg:asus" name ="brand" autofocus>
+                      <span id="msg3"></span>
+                  </div>
+                  <div class="input-box">
+                      <span class="details">Description</span>
+                      <input type="text" placeholder="Enter Product Description" name ="description" autofocus>
+                      <span id="msg4"></span>
+                      <span id="msg9"></span>
+                  </div>
+                  <div class="input-box">
+                      <span class="details">Features</span>
+                      <input type="text" placeholder="Enter Product Features" name="features" autofocus>
+                  </div>
+                  <div class="input-box">
+                      <span class="details">Product Image</span>
+                      <input type="file" placeholder="Upload Image Here" name ="image"autofocus>
+                      <span id="msg6"></span>
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Quantity</span>
+                    <input type="number" placeholder="Enter Quantity" name ="Quantity" autofocus>
+                    <span id="msg8"></span>
+                </div>
+                  <div class="input-box">
+                      <span class="details">Price</span>
+                      <input type="number" placeholder="Enter Price in Rupees" name ="price" autofocus>
+                      <span id="msg8"></span>
+                  </div>
+              </div>
+              <button class="register" type="submit">Add Product</button>
+              </form>
+            </div>
+</body>
+</html>
